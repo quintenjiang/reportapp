@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+
+
+	<!-- Key processor -->
+	<bean id="eft" class="com.nrttech.bezel.BezelKeyConvert"/>
+	<bean id="atallaCommandProcessor" class="com.nrttech.atalla.AtallaCommandProcessor">
+		<constructor-arg>
+			<bean class="com.nrttech.atalla.AtallaConnector">
+				<constructor-arg name="address" value="10.1.4.241:7111"/>
+			</bean>
+		</constructor-arg>
+	</bean>
+	<bean id="transportKey" class="java.lang.String">	
+		<constructor-arg value="1KDEN0I022A00995A63B2CE0C7385660A2A30964D406E040AAC549CAF576C3B25F5FE6B1B929" />
+	</bean>
+	
+	<bean class="com.nrttech.services.IdpServices"/>
+	
+</beans>
